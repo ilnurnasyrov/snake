@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "pathname"
+
+$LOAD_PATH << File.expand_path("../../lib",
+  Pathname.new(__FILE__).realpath)
+
+require "rubygems"
+require "bundler/setup"
+require "snake_game"
+require "ui"
+
+game = SnakeGame.new(width: 16, height: 16)
+
+UI.new(game).show
