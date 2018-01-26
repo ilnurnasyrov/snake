@@ -44,6 +44,8 @@ class SnakeGame
   end
 
   def tick!
+    return if over?
+
     x, y = snake.first
     next_head =
       case @direction
