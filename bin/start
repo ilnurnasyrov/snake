@@ -10,6 +10,6 @@ require "bundler/setup"
 require "snake_game"
 require "ui"
 
-game = SnakeGame.new(width: 16, height: 16)
+game = SnakeGame.new(width: 20, height: 20)
 
 UI.new(game).show
