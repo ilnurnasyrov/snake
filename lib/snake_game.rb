@@ -2,9 +2,14 @@ class SnakeGame
   attr_reader :width, :height, :snake, :apple
 
   def initialize(width:, height:)
-    @direction = :right
     @width = width
     @height = height
+    restart
+  end
+
+  def restart
+    @over = false
+    @direction = :right
     @apple = [width / 2 - 1, height / 2 - 1]
     @snake = [
       [3, 0],

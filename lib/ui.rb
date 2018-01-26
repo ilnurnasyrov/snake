@@ -32,12 +32,18 @@ class UI < Gosu::Window
   end
 
   def button_down(id)
-    game.up if id == Gosu::KB_UP
-    game.down if id == Gosu::KB_DOWN
-    game.left if id == Gosu::KB_LEFT
-    game.right if id == Gosu::KB_RIGHT
-
-    if id == Gosu::KB_ESCAPE
+    case id
+    when Gosu::KB_UP
+      game.up
+    when Gosu::KB_DOWN
+      game.down
+    when Gosu::KB_LEFT
+      game.left
+    when Gosu::KB_RIGHT
+      game.right
+    when Gosu::KB_RETURN, Gosu::KB_SPACE
+      game.restart
+    when Gosu::KB_ESCAPE
       close
     else
       super
