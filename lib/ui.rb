@@ -10,10 +10,6 @@ class UI < Gosu::Window
     self.update_interval = 150
   end
 
-  def caption
-    ""
-  end
-
   def update
     if game.over?
       self.caption = "Snake score: #{game.score}; GAME OVER!"
