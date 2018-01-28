@@ -1,6 +1,13 @@
 class SnakeGame
   attr_reader :width, :height, :snake, :apple
 
+  OPPOSITE = {
+    up: :down,
+    down: :up,
+    left: :right,
+    right: :left
+  }.freeze
+
   def initialize(width:, height:)
     @width = width
     @height = height
@@ -24,19 +31,23 @@ class SnakeGame
   end
 
   def up
-    @direction = :up unless @direction == :down
+    return if @blocked_direction == :up
+    @direction = :up
   end
 
   def down
-    @direction = :down unless @direction == :up
+    return if @blocked_direction == :down
+    @direction = :down
   end
 
   def left
-    @direction = :left unless @direction == :right
+    return if @blocked_direction == :left
+    @direction = :left
   end
 
   def right
-    @direction = :right unless @direction == :left
+    return if @blocked_direction == :right
+    @direction = :right
   end
 
   def over?
@@ -76,5 +87,7 @@ class SnakeGame
     else
       snake.pop
     end
+
+    @blocked_direction = OPPOSITE[@direction]
   end
 end
